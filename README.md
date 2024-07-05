@@ -37,6 +37,7 @@ Gemini Chat App is a Flutter application that integrates Gemini AI to provide an
 -   dash_chat_2:
 -   flutter_gemini:
 -   image_picker:
+-   flutter_markdown:
 
 ## References
 

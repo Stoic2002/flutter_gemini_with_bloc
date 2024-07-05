@@ -37,6 +37,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
   Future<void> _generateResponse(String text, Emitter<ChatState> emit,
       {List<Uint8List>? imageBytes}) async {
     emit(state.copyWith(isLoading: true));
+    emit(state.copyWith(isTyping: true));
 
     final responseStream = imageBytes != null
         ? gemini.streamGenerateContent(text, images: imageBytes)
@@ -69,5 +70,6 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
       emit(state.copyWith(messages: updatedMessages, isLoading: false));
     }
+    emit(state.copyWith(isTyping: false));
   }
 }
